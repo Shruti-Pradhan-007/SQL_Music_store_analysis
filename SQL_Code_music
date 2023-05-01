@@ -17,17 +17,16 @@ ORDER BY
 LIMIT 10;
 
 
--- Q2. The company would like to have an event in the country which has the highest sales.
+-- Q2. The company would like to have an event in the city which has the highest sales.
 
-SELECT billing_country AS Country
+SELECT billing_city AS City
 	, ROUND(SUM(total),2) AS Sales
 FROM
 	invoice
 GROUP BY 
-	Country
+	City
 ORDER BY
 	Sales DESC
 LIMIT 1;
-
 
 

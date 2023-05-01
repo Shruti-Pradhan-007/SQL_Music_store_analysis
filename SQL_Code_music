@@ -17,7 +17,7 @@ ORDER BY
 LIMIT 10;
 
 
--- Q2. The company would like to have an event in the city which has the highest sales.
+-- Q2. The company would like to have an event by inviting a pop singer in the city which has the highest sales.
 
 SELECT billing_city AS City
 	, ROUND(SUM(total),2) AS Sales
@@ -56,3 +56,5 @@ GROUP BY
 ORDER BY
 	Amount_spent DESC
 LIMIT 5;
+
+

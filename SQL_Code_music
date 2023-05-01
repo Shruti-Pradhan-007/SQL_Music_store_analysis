@@ -1,0 +1,19 @@
+/*
+
+Music Store Data Exploration
+
+*/
+
+-- Q1. Find the top 10 countries with highest number of customer engagement.
+
+select COUNT(invoice_id) AS Invoice_count
+  , billing_country
+from 
+	invoice
+group by
+	billing_country
+ORDER BY
+	Invoice_count DESC
+LIMIT 10;
+
+-- Q2. 

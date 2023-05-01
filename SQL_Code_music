@@ -16,4 +16,18 @@ ORDER BY
 	Invoice_count DESC
 LIMIT 10;
 
--- Q2. 
+
+-- Q2. The company would like to have an event in the country which has the highest sales.
+
+SELECT billing_country AS Country
+	, ROUND(SUM(total),2) AS Sales
+FROM
+	invoice
+GROUP BY 
+	Country
+ORDER BY
+	Sales DESC
+LIMIT 1;
+
+
+

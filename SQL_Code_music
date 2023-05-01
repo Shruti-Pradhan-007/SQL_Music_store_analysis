@@ -30,3 +30,29 @@ ORDER BY
 LIMIT 1;
 
 
+-- Q3. The company would like to know the country which has the highest sales.
+
+SELECT billing_country AS Country
+	, ROUND(SUM(total),2) AS Sales
+FROM
+	invoice
+GROUP BY 
+	Country
+ORDER BY
+	Sales DESC
+LIMIT 1;
+
+
+-- Q4. The company would like to distribute a special voucher to the top 5 customers in United States.
+
+SELECT customer_id AS Customer_ID
+	, ROUND(SUM(total),2) AS Amount_spent
+FROM
+	invoice
+WHERE
+	billing_country = 'USA'
+GROUP BY 
+	Customer_ID
+ORDER BY
+	Amount_spent DESC
+LIMIT 5;

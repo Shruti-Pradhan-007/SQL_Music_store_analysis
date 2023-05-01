@@ -30,7 +30,7 @@ ORDER BY
 LIMIT 1;
 
 
--- Q3. The company would like to know the country which has the highest sales.
+-- Q3. The company would like to know the country that is the greatest contributor in driving its sales forward. (highest sales)
 
 SELECT billing_country AS Country
 	, ROUND(SUM(total),2) AS Sales
@@ -58,18 +58,18 @@ ORDER BY
 LIMIT 5;
 
 
--- Q5. Find the customer who has the highest purchase amount at global level.
+-- Q5. Find the customer who is the MVP - has the highest purchase amount at global level.
 
 SELECT c.customer_id
-	, c.first_name
+    , c.first_name
     , c.last_name
     , SUM(i.total) AS Purchase_total
 FROM
-	customer c
+    customer c
     JOIN invoice i
     ON c.customer_id = i.customer_id
 GROUP BY
-	c.customer_id
+    c.customer_id
     , c.first_name
     , c.last_name
 ORDER BY
@@ -120,13 +120,12 @@ FROM
 WHERE
 	milliseconds > (SELECT AVG(milliseconds) AS Average_track_length
 			FROM 
-                            track
-                    	)
+                            track)
 ORDER BY
 	milliseconds DESC;
 
 
--- Q9. Find how much amount spent by each customer on artists? Write a query to return customer name, artist name and total spent.
+-- Q9. Find how much amount was spent by each customer on artists? Write a query to return customer name, artist name and total amount spent.
 
 WITH best_selling_artist AS (
 	SELECT artist.artist_id AS artist_id, artist.name AS artist_name, SUM(invoice_line.unit_price*invoice_line.quantity) AS total_sales
